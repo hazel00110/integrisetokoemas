@@ -6,6 +6,7 @@ use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
 use App\Livewire\Product\Index as ProductIndex;
 use App\Livewire\Pos\Index as PosIndex;
+use App\Livewire\Employees\Index as EmployeeIndex;
 use App\Livewire\StockOpname\Index as StockOpnameIndex;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -19,6 +20,9 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('employees', EmployeeIndex::class)
+        ->name('employees');
+
     Route::get('pos', PosIndex::class)
         ->name('pos');
 

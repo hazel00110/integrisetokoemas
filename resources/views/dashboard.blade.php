@@ -17,10 +17,10 @@
                 class="flex items-center aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
                 <h2 class="mx-auto">Stock Opname<span class="text-red-500 ml-4">not yet</span></h2>
             </div>
-            <div
+            <a href="{{ route('employees') }}"
                 class="flex items-center aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
                 <h2 class="mx-auto">HR & Payroll<span class="text-red-500 ml-4">not yet</span></h2>
-            </div>
+            </a>
             <div
                 class="flex items-center aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
                 <h2 class="mx-auto">Statistik<span class="text-red-500 ml-4">not yet</span></h2>

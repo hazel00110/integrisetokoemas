@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stock_moves', function (Blueprint $t) {
-            $t->id();
-            $t->unsignedBigInteger('store_id')->default(1); // kalau multi toko, nanti relasikan
-            $t->foreignId('product_id')->constrained('products')->restrictOnDelete();
-            $t->unsignedBigInteger('lot_id')->nullable(); // future-proof kalau pakai lots
-            $t->enum('ref_type', ['in', 'sale', 'adjust']);
-            $t->unsignedBigInteger('ref_id')->nullable(); // id order / penyesuaian
-            $t->decimal('qty_gram_change', 15, 3)->default(0); // sale = negatif
-            $t->integer('qty_pcs_change')->default(0);         // sale = negatif
-            $t->string('note', 200)->nullable();
-            $t->timestamp('created_at')->useCurrent();
+        Schema::create('stock_moves', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('store_id')->default(1); // kalau multi toko, nanti relasikan
+            $table->foreignId('product_id')->constrained('products')->restrictOnDelete();
+            $table->unsignedBigInteger('lot_id')->nullable(); // future-proof kalau pakai lots
+            $table->enum('ref_type', ['in', 'sale', 'adjust']);
+            $table->unsignedBigInteger('ref_id')->nullable(); // id order / penyesuaian
+            $table->decimal('qty_gram_change', 15, 3)->default(0); // sale = negatif
+            $table->integer('qty_pcs_change')->default(0);         // sale = negatif
+            $table->string('note', 200)->nullable();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

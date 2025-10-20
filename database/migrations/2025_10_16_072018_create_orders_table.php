@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $t) {
-            $t->id(); // BIGINT
-            $t->string('code', 30)->unique();     // e.g. POS-20251016-0001
-            $t->string('customer_name', 120)->nullable();
-            $t->decimal('subtotal', 15, 2)->default(0);
-            $t->decimal('discount', 15, 2)->default(0);
-            $t->decimal('tax', 15, 2)->default(0);
-            $t->decimal('total', 15, 2)->default(0);
-            $t->text('notes')->nullable();
-            $t->enum('status', ['draft', 'paid', 'cancelled'])->default('paid');
-            $t->timestamps();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id(); // BIGINT
+            $table->string('code', 30)->unique();     // e.g. POS-20251016-0001
+            $table->string('customer_name', 120)->nullable();
+            $table->decimal('subtotal', 15, 2)->default(0);
+            $table->decimal('discount', 15, 2)->default(0);
+            $table->decimal('tax', 15, 2)->default(0);
+            $table->decimal('total', 15, 2)->default(0);
+            $table->text('notes')->nullable();
+            $table->enum('status', ['draft', 'paid', 'cancelled'])->default('paid');
+            $table->timestamps();
         });
     }
 

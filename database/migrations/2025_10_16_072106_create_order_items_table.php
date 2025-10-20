@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_items', function (Blueprint $t) {
-            $t->id();
-            $t->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
-            $t->foreignId('product_id')->constrained('products')->restrictOnDelete();
-            $t->integer('qty_pcs')->default(0);
-            $t->decimal('qty_gram', 15, 3)->default(0); // presisi gram
-            $t->decimal('price_per_gram', 15, 2)->nullable(); // snapshot harga jual/gram
-            $t->decimal('making_fee', 15, 2)->default(0);      // per item/line
-            $t->decimal('line_total', 15, 2)->default(0);      // subtotal per baris
-            $t->text('notes')->nullable();
-            $t->timestamps();
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->restrictOnDelete();
+            $table->integer('qty_pcs')->default(0);
+            $table->decimal('qty_gram', 15, 3)->default(0); // presisi gram
+            $table->decimal('price_per_gram', 15, 2)->nullable(); // snapshot harga jual/gram
+            $table->decimal('making_fee', 15, 2)->default(0);      // per item/line
+            $table->decimal('line_total', 15, 2)->default(0);      // subtotal per baris
+            $table->text('notes')->nullable();
+            $table->timestamps();
         });
     }
 
