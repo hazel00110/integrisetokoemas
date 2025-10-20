@@ -17,6 +17,10 @@
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
                     wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                <flux:navlist.item icon="currency-dollar" :href="route('pos')" :current="request()->routeIs('pos')"
+                    wire:navigate>{{ __('Point of Sale') }}</flux:navlist.item>
+                <flux:navlist.item icon="cube" :href="route('products')" :current="request()->routeIs('products')"
+                    wire:navigate>{{ __('Products') }}</flux:navlist.item>
                 <flux:navlist.item icon="cube" :href="route('products')" :current="request()->routeIs('products')"
                     wire:navigate>{{ __('Products') }}</flux:navlist.item>
             </flux:navlist.group>
@@ -61,7 +65,8 @@
                 <flux:menu.separator />
 
                 <flux:menu.radio.group>
-                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}
+                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                        {{ __('Settings') }}
                     </flux:menu.item>
                 </flux:menu.radio.group>
 
@@ -108,7 +113,8 @@
                 <flux:menu.separator />
 
                 <flux:menu.radio.group>
-                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}
+                    <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>
+                        {{ __('Settings') }}
                     </flux:menu.item>
                 </flux:menu.radio.group>
 

@@ -24,11 +24,11 @@
         <div class="p-3 rounded bg-emerald-50 text-emerald-800 text-sm">{{ session('ok') }}</div>
     @endif
 
-    {{-- BODY: Grid/Table (sama seperti versi sebelumnya) --}}
+    {{-- BODY: Grid/Table --}}
     @if ($viewMode === 'grid')
         <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
             @foreach ($products as $product)
-                <div class="rounded-lg border bg-white p-4 shadow-sm">
+                <div class="rounded-lg border bg-white p-4 shadow-sm flex flex-col h-full">
                     <div class="aspect-[4/3] bg-gray-100 rounded flex items-center justify-center overflow-hidden">
                         @if ($product->image_path)
                             <img class="w-full h-full object-cover" src="{{ Storage::url($product->image_path) }}"
@@ -40,7 +40,7 @@
 
                     <div class="mt-3">
                         <div class="font-semibold text-sm">{{ $product->name }}</div>
-                        <div class="text-xs text-gray-500">SKU: {{ $product->sku }}</div>
+                        <div class="mt-1 text-xs text-gray-500">SKU: {{ $product->sku }}</div>
                         <div class="text-xs text-gray-500">Type: {{ ucfirst($product->type) }}</div>
                         @if ($product->notes)
                             <p class="mt-2 text-xs text-gray-500">
@@ -49,7 +49,7 @@
                         @endif
                     </div>
 
-                    <div class="mt-3 flex justify-end">
+                    <div class="mt-auto flex justify-end pt-3">
                         <button class="px-3 py-1.5 text-sm rounded border"
                             wire:click="openEdit({{ $product->id }})">Edit</button>
                     </div>

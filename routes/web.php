@@ -6,6 +6,7 @@ use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
 use App\Livewire\Product\Index as ProductIndex;
 use App\Livewire\Pos\Index as PosIndex;
+use App\Livewire\StockOpname\Index as StockOpnameIndex;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
@@ -23,6 +24,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/products', ProductIndex::class)
         ->name('products');
+
+    Route::get('/stockopname', StockOpnameIndex::class)
+        ->name('stockopname');
 
     Route::redirect('settings', 'settings/profile');
 
