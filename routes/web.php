@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    Route::view('dashboard', 'dashboard')
+        ->name('dashboard');
+
     Route::get('employees', EmployeeIndex::class)
         ->name('employees');
 

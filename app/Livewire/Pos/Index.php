@@ -36,11 +36,10 @@ class Index extends Component
 
     public function render()
     {
-        /** Limit 12 best sellers */
+        /** Paginate 12 best sellers */
         $products = Product::query()
-            ->orderByDesc('id')
-            ->limit(12)
-            ->get();
+            ->orderBy('sell_price_per_gram', 'desc')
+            ->paginate(12);
 
         return view('livewire.pos.index', [
             'products' => $products,

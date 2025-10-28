@@ -30,6 +30,11 @@
                 </button>
             @endforeach
         </div>
+
+        {{-- Pagination --}}
+        <div>
+            {{ $products->links() }}
+        </div>
     </section>
 
     {{-- RIGHT: Cart --}}

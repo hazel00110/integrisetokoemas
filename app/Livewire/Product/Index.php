@@ -192,7 +192,7 @@ class Index extends Component
         $products = $this->getProductsQuery()->paginate(12);
 
         return view('livewire.product.index', [
-            'products' => $products,
+            'products' => $products
         ]);
     }
 }
