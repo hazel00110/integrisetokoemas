@@ -1,4 +1,8 @@
 <div>
+    <div>
+        <input type="text" placeholder="Search employees by name, position, or department"
+            class="input input-bordered w-64 border rounded px-3 py-2 mb-4" wire:model="search" />
+    </div>
     @foreach ($employees as $employee)
         <div>
             <h2 class="text-lg font-semibold mt-6">All Employees</h2>

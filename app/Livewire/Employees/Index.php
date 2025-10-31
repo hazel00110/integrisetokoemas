@@ -11,6 +11,8 @@ class Index extends Component
 {
     public string $nameId = '';
 
+    public string $search = '';
+
     public function mount(): void
     {
         $this->nameId = Auth::user()->id;
@@ -18,9 +20,14 @@ class Index extends Component
     public function render()
     {
         /** @var Employee[]  */
-        $employees = Employee::all();
+        $employees = Employee::search('name', $this->search)
+            ->orderByDesc('created_at')
+            ->get();
         $employeeUser = Employee::where('user_id', $this->nameId)->first();
 
-        return view('livewire.employees.index', compact('employees', 'employeeUser'));
+        return view('livewire.employees.index', [
+            'employees' => $employees,
+            'employeeUser' => $employeeUser,
+        ]);
     }
 }

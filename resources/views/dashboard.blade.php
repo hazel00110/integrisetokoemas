@@ -27,7 +27,7 @@
             </div>
             <div
                 class="flex items-center aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <h2 class="mx-auto">Pengaturan Toko<span class="text-red-500 ml-4">not yet</span></h2>
+                <h2 class="mx-auto">Orders<span class="text-red-500 ml-4">not yet</span></h2>
             </div>
         </div>
     </div>

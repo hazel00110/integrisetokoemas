@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id(); // BIGINT
             $table->string('code', 30)->unique();     // e.g. POS-20251016-0001
             $table->string('customer_name', 120)->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->decimal('subtotal', 15, 2)->default(0);
             $table->decimal('discount', 15, 2)->default(0);
             $table->decimal('tax', 15, 2)->default(0);

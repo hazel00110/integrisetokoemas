@@ -1,5 +1,5 @@
 {{-- resources/views/livewire/product/partials/form-fields.blade.php --}}
-<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
     <div>
         <label class="block text-xs text-gray-600 mb-1">SKU *</label>
         <input type="text" class="w-full border rounded px-3 py-2" wire:model.defer="form.sku">

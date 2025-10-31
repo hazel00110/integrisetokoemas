@@ -1,7 +1,7 @@
 {{-- resources/views/livewire/pos/index.blade.php --}}
 <div class="grid md:grid-cols-3 gap-6">
     {{-- LEFT: Product quick-add + barcode --}}
-    <section class="md:col-span-2 gap-4">
+    <section class="md:col-span-2 gap-4 space-y-6">
         <div class="sticky top-0 bg-white/70 backdrop-blur z-10 p-3 rounded border flex items-center gap-2">
             <input wire:model="barcode" wire:keydown.enter.prevent="addByBarcode(barcode)" type="text"
                 placeholder="Scan / type barcode" class="w-full bg-gray-50 shadow-sm rounded px-3 py-2" />
@@ -121,7 +121,8 @@
 
         <div class="mt-4 flex items-center gap-2">
             <button class="px-3 py-2 rounded border" wire:click="clearCart">Clear</button>
-            <button class="flex-1 px-4 py-2 rounded bg-emerald-600 text-white" wire:click="checkout">Checkout</button>
+            <button class="flex-1 px-4 py-2 rounded bg-emerald-600 text-white" wire:click="checkout"
+                wire:confirm="Are you sure you want to checkout?">Checkout</button>
         </div>
     </aside>
 </div>

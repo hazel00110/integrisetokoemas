@@ -21,8 +21,8 @@
                     wire:navigate>{{ __('Point of Sale') }}</flux:navlist.item>
                 <flux:navlist.item icon="cube" :href="route('products')" :current="request()->routeIs('products')"
                     wire:navigate>{{ __('Products') }}</flux:navlist.item>
-                <flux:navlist.item icon="cube" :href="route('products')" :current="request()->routeIs('products')"
-                    wire:navigate>{{ __('Products') }}</flux:navlist.item>
+                <flux:navlist.item icon="shopping-cart" :href="route('orders')" :current="request()->routeIs('orders')"
+                    wire:navigate>{{ __('Orders') }}</flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 

@@ -5,8 +5,10 @@
         <h1 class="text-2xl font-semibold">Products</h1>
 
         <div class="flex items-center gap-2">
-            <input type="text" placeholder="Search by name or SKU"
-                class="input input-bordered w-64 border rounded px-3 py-2" wire:model.debounce.300ms="search" />
+            <div>
+                <input type="text" placeholder="Search by name or SKU"
+                    class="input input-bordered w-64 border rounded px-3 py-2" wire:model.live.debounce.300ms="search" />
+            </div>
 
             <div class="inline-flex rounded border overflow-hidden">
                 <button class="px-3 py-2 text-sm {{ $viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-white' }}"
