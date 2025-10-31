@@ -3,12 +3,13 @@
 namespace App\Livewire\Pos;
 
 use App\Models\Order;
-use App\Models\OrderItem;
 use App\Models\Product;
-use App\Models\StockMove;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Livewire\Component;
+use App\Models\OrderItem;
+use App\Models\StockMove;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
@@ -129,6 +130,7 @@ class Index extends Component
     /** Checkout: simpan order + items + stock moves */
     public function checkout(): void
     {
+        $userId = Auth::id() ?? null;
         if (empty($this->items)) {
             $this->dispatch('toast', type: 'error', message: 'Cart masih kosong');
             return;
@@ -136,10 +138,12 @@ class Index extends Component
 
         $tot = $this->computeTotals();
 
-        DB::transaction(function () use ($tot) {
+        DB::transaction(function () use ($tot, $userId) {
+
             $order = Order::create([
                 'code'          => $this->generateCode(),
                 'customer_name' => $this->customer ?: null,
+                'user_id'      => $userId,
                 'subtotal'      => $tot['subtotal'],
                 'discount'      => $tot['discount'],
                 'tax'           => $tot['tax'],

@@ -23,6 +23,12 @@ class Index extends Component
         return $query->orderBy('created_at', 'desc');
     }
 
+    public function getUsername($userId)
+    {
+        $user = \App\Models\User::find($userId);
+        return $user ? $user->name : 'Unknown';
+    }
+
     public function render()
     {
         $orders = $this->getOrdersQuery()->paginate(10);

@@ -31,7 +31,7 @@
                             </div>
                         </td>
                         <td class="px-3 py-2">{{ $order->total }}</td>
-                        <td class="px-3 py-2">{{ $order->customer_name }}</td>
+                        <td class="px-3 py-2">{{ $this->getUsername($order->user_id) }}</td>
                         <td class="px-3 py-2 text-right">
                             <button class="px-3 py-1.5 text-sm rounded border"
                                 wire:click="openEdit({{ $order->id }})">Edit</button>
